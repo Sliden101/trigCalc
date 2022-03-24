@@ -1,0 +1,163 @@
+<html><link type="text/css" id="dark-mode" rel="stylesheet" href=""><style type="text/css" id="dark-mode-custom-style"></style><head><link type="text/css" id="dark-mode" rel="stylesheet" href="">
+    <style type="text/css" id="dark-mode-custom-style"></style>
+    
+       <title>Trigonometry Calculator</title>
+    </head>
+    <body>
+       <center>
+          <!-- Main Content Table -->
+          <script id="clientEventHandlersJS" language="javascript">
+             <!--
+             function butCalculate_onclick() {
+                 if (CheckForValidInput(frmTriangle.sideA.value,frmTriangle.sideB.value,frmTriangle.sideC.value,frmTriangle.angleA.value,frmTriangle.angleB.value))
+                 {
+                     if (SolveForAngles(frmTriangle.sideA.value,frmTriangle.sideB.value,frmTriangle.sideC.value,frmTriangle.angleA.value,frmTriangle.angleB.value)){
+                         SolveForSides(frmTriangle.sideA.value,frmTriangle.sideB.value,frmTriangle.sideC.value,frmTriangle.angleA.value,frmTriangle.angleB.value)
+                     }
+                 }
+             }	
+             function CheckForValidInput(sideA,sideB,sideC,angleA,angleB){
+                 // check to see if both angles were input and they don't add up to 90
+                 if (angleA>0 && angleB>0){
+                     var sum = parseFloat(angleA) + parseFloat(angleB)
+                     if (sum != 90){
+                         alert ("You input two angles that do not add up to 90 degrees. Please input only one angle or two angles that add up to 90 degrees")
+                         return false
+                     }
+                 }
+                 // check to see if three sides were input and it is not a real triangle
+                 if (sideA>0 && sideB>0 && sideC>0){
+                     sideA=parseFloat(sideA)
+                     sideB=parseFloat(sideB)
+                     sideC=parseFloat(sideC)
+                     if (sideC != Math.sqrt(Math.pow(sideA,2)+Math.pow(sideB,2))){
+                         alert("You input three sides, but they do not make a right triangle")
+                         return false
+                     }
+                 }
+                 
+             return true
+             }
+             function RadiansToDegrees(valRad){
+                 return (360/(2*Math.PI)*valRad)
+             }
+             function DegreesToRadians(valDeg){
+                 return ((2*Math.PI)/360*valDeg)
+             }
+             function SolveForAngles (sideA,sideB,sideC,angleA,angleB){
+                 if (angleA>0) {
+                     angleB = 90 - angleA;
+                 }
+                 else if (angleB>0) {
+                     angleA = 90 - angleB;
+                 }
+                 else if (sideA>0 && sideB>0){
+                     angleA = RadiansToDegrees(Math.atan (sideA/sideB))
+                     angleB = RadiansToDegrees(Math.atan (sideB/sideA))
+                 }
+                 else if (sideA>0 && sideC>0){
+                         angleA = RadiansToDegrees(Math.asin (sideA/sideC))
+                         angleB = RadiansToDegrees(Math.acos (sideA/sideC))
+                 }
+                 else if (sideB>0 && sideC>0){
+                         angleA = RadiansToDegrees(Math.acos (sideB/sideC))
+                         angleB = RadiansToDegrees(Math.asin (sideB/sideC))
+                 }
+                 if (angleA>0 && angleB>0){
+                     frmTriangle.angleA.value=angleA
+                     frmTriangle.angleB.value=angleB
+                     return true
+                 }
+                 else {
+                     alert ("Not enough information, you must input at least 1 side and an angle or 2 sides")
+                     return false
+                 }	
+             }
+                 
+             function SolveForSides (sideA,sideB,sideC,angleA,angleB)	{
+                 if (sideA>0){
+                     sideB = sideA / Math.tan(DegreesToRadians(angleA))
+                     sideC = sideA / Math.sin(DegreesToRadians(angleA))
+                 }
+                 else if (sideB>0){
+                     sideA = sideB / Math.tan(DegreesToRadians(angleB))
+                     sideC = sideB / Math.sin(DegreesToRadians(angleB))
+                 }
+                 
+                 else if (sideC>0){
+                     sideA = sideC * Math.sin(DegreesToRadians(angleA))
+                     sideB = sideC * Math.cos(DegreesToRadians(angleA))
+                 }
+                 if (sideA>0 && sideB>0 && sideC>0){
+                     frmTriangle.sideA.value=sideA
+                     frmTriangle.sideB.value=sideB
+                     frmTriangle.sideC.value=sideC
+                 }
+                 else {
+                     alert ("Not enough information, you must input at least 1 side and an angle or 2 sides")
+                 }	
+                 
+             }
+             //-->
+          </script>
+          <table width="100%" cellspacing="0" cellpadding="0" border="0">
+             <tbody>
+                <tr>
+                   <td width="100%" valign="top">
+                      <form name="frmTriangle" id="frmTriangle">
+                         
+                         
+                         <table width="1410" cellspacing="0" cellpadding="6" border="0">
+                            <tbody>
+                               <tr>
+                                  <td width="190">
+                                     <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                                        <tbody>
+                                           <tr>
+                                              <td><font size="1">side a<br><input maxlength="10" size="10" name="sideA">    &nbsp;<br>
+                                                 side b <br><input maxlength="10" size="10" name="sideB">    &nbsp;<br>
+                                                 side c <br><input maxlength="10" size="10" name="sideC">    &nbsp;<br>
+                                                 angle A <br><input maxlength="10" size="10" name="angleA">    &nbsp;<br>
+                                                 angle B <br><input maxlength="10" size="10" name="angleB" data-com.bitwarden.browser.user-edited="yes"></font>
+                                              </td>
+                                           </tr>
+                                           <tr>
+                                              <td height="5">
+                                                 <font size="1" face="Arial">
+                                                    <spacer width="20" type="BLOCK"></spacer>
+                                                 </font>
+                                              </td>
+                                           </tr>
+                                        </tbody>
+                                     </table>
+                                     <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                                        <tbody>
+                                           <tr>
+                                              <td><font size="2" face="Arial"><input id="butCalculate" type="button" value="Calculate" name="butCalculate" language="javascript" onclick="return butCalculate_onclick()">&nbsp;&nbsp;<input type="reset" value="Reset" name="reset"></font></td>
+                                           </tr>
+                                        </tbody>
+                                     </table>
+                                  </td>
+                                  <td width="1192">
+                                     <table width="100%" cellspacing="3" cellpadding="0" border="0">
+                                        <tbody>
+                                           <tr>
+                                              <td><font face="Arial"><img src="triangle-right.jpg" border="0"></font></td>
+                                           </tr>
+                                        </tbody>
+                                     </table>
+                                  </td>
+                               </tr>
+                            </tbody>
+                         </table>
+                      </form>
+                   </td>
+                </tr>
+             </tbody>
+          </table>
+          <!-- Footer -->
+       </center>
+    
+ 
+ 
+ </body></html>
